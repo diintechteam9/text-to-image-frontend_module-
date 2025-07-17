@@ -12,4 +12,3 @@ yarn-error.log
 
 # Uploads directory
 config/*
-config/google-service-account.json
