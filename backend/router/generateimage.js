@@ -9,10 +9,12 @@ const LOCATION = process.env.GOOGLE_LOCATION || 'us-central1';
 const MODEL_ID = 'imagen-4.0-generate-preview-06-06';
 
 async function getAccessToken() {
+  // Use credentials from the environment variable
+  const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
   const auth = new GoogleAuth({
+    credentials,
     scopes: 'https://www.googleapis.com/auth/cloud-platform',
   });
-  
   const client = await auth.getClient();
   return await client.getAccessToken();
 }
